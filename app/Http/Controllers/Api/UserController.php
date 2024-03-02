@@ -24,7 +24,7 @@ class UserController extends Controller
             return response()->json(['message' => count($users) . " user found", 'status' => 1, "data" => $users], 200);
         }
     }
-
+    
     /**
      * Show the form for creating a new resource.
      */
@@ -32,7 +32,7 @@ class UserController extends Controller
     {
         //
     }
-
+    
     /**
      * Store a newly created resource in storage.
      */
@@ -47,7 +47,7 @@ class UserController extends Controller
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 401);
         }
-
+        
         try {
             $user = User::create([
                 'name' => $request['name'],
@@ -59,7 +59,7 @@ class UserController extends Controller
             return response()->json(['error' => '500 Internal Server Error'], 500);
         }
     }
-
+    
     /**
      * Display the specified resource.
      */
@@ -67,8 +67,13 @@ class UserController extends Controller
     {
         $user = User::find($id);
         
+        if(!$user){
+            return response()->json([ 'status' => 0, 'message'=> 'User not found'],404);
+        }else{
+            return response()->json(['status' => 1, "data" => $user], 200);
+        }
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */

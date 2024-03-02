@@ -20,5 +20,6 @@ use App\Http\Controllers\Api\UserController;
 // });
 
 Route::post('user/store', [UserController::class, 'store']);
-Route::post('user/get', [UserController::class, 'index']);
-Route::post('user/{id}', [UserController::class, 'show']);
+
+Route::get('user/all', [UserController::class, 'index']);
+Route::get('user/{id}', [UserController::class, 'show']);
