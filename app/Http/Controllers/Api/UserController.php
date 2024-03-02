@@ -155,6 +155,7 @@ class UserController extends Controller
                     return response()->json(['status' => 0, 'message' => 'Old passward is incorrect'], 400);
                 }
             }catch(\Exception $exception) {
+                DB::rollBack();
                 return response()->json([
                     "status" => 0,
                     "message"=> "Internel Server Error."
