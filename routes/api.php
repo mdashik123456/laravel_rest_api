@@ -20,7 +20,6 @@ use App\Http\Controllers\Api\UserController;
 // });
 
 Route::controller(UserController::class)->group(function () {
-    // public routes
     Route::post('user/store', 'store');
     
     Route::get('user/all', 'index');
@@ -31,13 +30,3 @@ Route::controller(UserController::class)->group(function () {
     Route::put('user/{id}','update');
     Route::patch('user/change_pass/{id}','changePassword');
 });
-
-// Route::post('user/store', [UserController::class, 'store']);
-
-// Route::get('user/all', [UserController::class, 'index']);
-// Route::get('user/{id}', [UserController::class, 'show']);
-
-// Route::delete('user/{id}', [UserController::class,'destroy']);
-
-// Route::put('user/{id}', [UserController::class,'update']);
-// Route::patch('user/change_pass/{id}', [UserController::class,'changePassword']);
