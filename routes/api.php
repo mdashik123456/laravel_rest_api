@@ -23,3 +23,5 @@ Route::post('user/store', [UserController::class, 'store']);
 
 Route::get('user/all', [UserController::class, 'index']);
 Route::get('user/{id}', [UserController::class, 'show']);
+
+Route::delete('user/{id}', [UserController::class,'destroy']);

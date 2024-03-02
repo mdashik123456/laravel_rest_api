@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -95,6 +96,28 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = DB::table('users')->find($id);
+        
+        if(!$user)
+        {
+            return response()->json([ 'status' => 0, 'message'=> 'User not found'],404);
+        }
+        else
+        {
+            try
+            {
+                DB::beginTransaction();
+                /* Delete user data from users table first to avoid foreign key constraint error */
+                // $user->delete();
+                DB::table('users')->where('id', $id)->delete();
+                DB::commit();
+                return response()->json(['status' => 1 ,'message'=>'User deleted successfully']);
+            }
+            catch(\Exception $exception)
+            {
+                DB::rollBack();
+                return response()->json(['status'=>0,'message'=>'Internal server error','data'=>$exception],500);
+            }
+        }
     }
 }
