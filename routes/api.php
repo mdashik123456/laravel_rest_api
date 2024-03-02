@@ -19,12 +19,25 @@ use App\Http\Controllers\Api\UserController;
 //     return $request->user();
 // });
 
-Route::post('user/store', [UserController::class, 'store']);
+Route::controller(UserController::class)->group(function () {
+    // public routes
+    Route::post('user/store', 'store');
+    
+    Route::get('user/all', 'index');
+    Route::get('user/{id}', 'show');
+    
+    Route::delete('user/{id}','destroy');
+    
+    Route::put('user/{id}','update');
+    Route::patch('user/change_pass/{id}','changePassword');
+});
 
-Route::get('user/all', [UserController::class, 'index']);
-Route::get('user/{id}', [UserController::class, 'show']);
+// Route::post('user/store', [UserController::class, 'store']);
 
-Route::delete('user/{id}', [UserController::class,'destroy']);
+// Route::get('user/all', [UserController::class, 'index']);
+// Route::get('user/{id}', [UserController::class, 'show']);
 
-Route::put('user/{id}', [UserController::class,'update']);
-Route::patch('user/change_pass/{id}', [UserController::class,'changePassword']);
+// Route::delete('user/{id}', [UserController::class,'destroy']);
+
+// Route::put('user/{id}', [UserController::class,'update']);
+// Route::patch('user/change_pass/{id}', [UserController::class,'changePassword']);
