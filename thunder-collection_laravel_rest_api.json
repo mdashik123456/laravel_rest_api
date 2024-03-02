@@ -1,0 +1,137 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "laravel_rest_api",
+    "dateExported": "2024-03-02T15:13:22.964Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "cc4d0ebc-6ab2-42ea-8573-dbdb5e4f6eb5",
+            "colId": "9f8ae7ad-996f-4425-b67d-5d22dc8a5326",
+            "containerId": "",
+            "name": "http://127.0.0.1:8000/api/user/1?name=ashik&email=ashik@gmail.com&contact=0123456789",
+            "url": "http://127.0.0.1:8000/api/user/1?name=ashik&email=ashik@gmail.com&contact=0123456789",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2024-03-02T15:12:25.554Z",
+            "modified": "2024-03-02T15:12:25.554Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "name",
+                    "value": "ashik",
+                    "isPath": false
+                },
+                {
+                    "name": "email",
+                    "value": "ashik@gmail.com",
+                    "isPath": false
+                },
+                {
+                    "name": "contact",
+                    "value": "0123456789",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "3fdef5d8-d911-48fc-8664-2cf2de04dcbe",
+            "colId": "9f8ae7ad-996f-4425-b67d-5d22dc8a5326",
+            "containerId": "",
+            "name": "https://www.thunderclient.com/welcome",
+            "url": "https://www.thunderclient.com/welcome",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-02T15:12:31.402Z",
+            "modified": "2024-03-02T15:12:31.402Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "baa02229-4240-4b3c-954b-b915bf12e05f",
+            "colId": "9f8ae7ad-996f-4425-b67d-5d22dc8a5326",
+            "containerId": "",
+            "name": "http://127.0.0.1:8000/api/user/store",
+            "url": "http://127.0.0.1:8000/api/user/store?name=ashik6&email=ashik6@gmail.com&contact=0123456789&password=aaaaaaaa&password_confirmation=aaaaaaaa",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-03-02T15:12:36.703Z",
+            "modified": "2024-03-02T15:12:36.703Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "name",
+                    "value": "ashik6",
+                    "isPath": false
+                },
+                {
+                    "name": "email",
+                    "value": "ashik6@gmail.com",
+                    "isPath": false
+                },
+                {
+                    "name": "contact",
+                    "value": "0123456789",
+                    "isPath": false
+                },
+                {
+                    "name": "password",
+                    "value": "aaaaaaaa",
+                    "isPath": false
+                },
+                {
+                    "name": "password_confirmation",
+                    "value": "aaaaaaaa",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "add8b345-fb67-4059-b0c9-11f7de87cd81",
+            "colId": "9f8ae7ad-996f-4425-b67d-5d22dc8a5326",
+            "containerId": "",
+            "name": "http://127.0.0.1:8000/api/user/store?name=ashik&password=aaaaaaaa&password_confirmation=aaaaaaaaa",
+            "url": "http://127.0.0.1:8000/api/user/all",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-03-02T15:12:44.472Z",
+            "modified": "2024-03-02T15:12:44.472Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "34ec9032-78ac-4211-b021-23c49c40bd97",
+            "colId": "9f8ae7ad-996f-4425-b67d-5d22dc8a5326",
+            "containerId": "",
+            "name": "http://127.0.0.1:8000/api/user/store?name=ashik&password=aaaaaaaa&password_confirmation=aaaaaaaa",
+            "url": "http://127.0.0.1:8000/api/user/change_pass/1?old_pass=aaaaaaaa&password=aaaaaaaa&password_confirmation=aaaaaaaa",
+            "method": "PATCH",
+            "sortNum": 50000,
+            "created": "2024-03-02T15:12:49.421Z",
+            "modified": "2024-03-02T15:12:49.421Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "old_pass",
+                    "value": "aaaaaaaa",
+                    "isPath": false
+                },
+                {
+                    "name": "password",
+                    "value": "aaaaaaaa",
+                    "isPath": false
+                },
+                {
+                    "name": "password_confirmation",
+                    "value": "aaaaaaaa",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        }
+    ]
+}

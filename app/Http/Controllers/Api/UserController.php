@@ -50,11 +50,12 @@ class UserController extends Controller
         }
 
         try {
-            $user = User::create([
-                'name' => $request['name'],
-                'email' => $request['email'],
-                'password' => password_hash($request['password'], PASSWORD_DEFAULT)
-            ]);
+            // $user = User::create([
+            //     'name' => $request['name'],
+            //     'email' => $request['email'],
+            //     'password' => password_hash($request['password'], PASSWORD_DEFAULT)
+            // ]);
+            User::create($request->all());
             return response()->json(['Success' => 'User Registration Successfull'], 201);
         } catch (\Exception $e) {
             return response()->json(['error' => '500 Internal Server Error'], 500);
