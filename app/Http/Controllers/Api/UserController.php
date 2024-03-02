@@ -14,7 +14,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        if (count($users) == 0) {
+            return response()->json([
+                'message' => 'No user found',
+                'status' => 0
+            ], 404);
+        } else {
+            return response()->json(['message' => count($users) . " user found", 'status' => 1, "data" => $users], 200);
+        }
     }
 
     /**
@@ -46,8 +54,7 @@ class UserController extends Controller
                 'email' => $request['email'],
                 'password' => bcrypt($request['password'])
             ]);
-            return response()->json(compact('user'), 201);
-
+            return response()->json(['Success' => 'User Registration Successfull'], 201);
         } catch (\Exception $e) {
             return response()->json(['error' => '500 Internal Server Error'], 500);
         }
@@ -56,9 +63,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $user = User::find($id);
+        
     }
 
     /**
