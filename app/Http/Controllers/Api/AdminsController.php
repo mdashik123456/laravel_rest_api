@@ -41,7 +41,7 @@ class AdminsController extends Controller
             $admin->save();
             $token = $admin->createToken('Auth_Token')->accessToken;
             DB::commit();
-            return response()->json(['token' => $admin->getRememberToken(), 'status' => 1, "message" => 'Admin Create Successfully'], 200);
+            return response()->json(['token' => $token, 'status' => 1, "message" => 'Admin Create Successfully'], 200);
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json(['status' => 0, 'msg' => $e->getMessage()], 403);
