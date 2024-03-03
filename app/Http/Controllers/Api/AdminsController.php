@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 
 
-class AdminController extends Controller
+class AdminsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class AdminController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:admins,email',
             'password' => 'required|min:8'
         ]);
 
@@ -41,7 +41,7 @@ class AdminController extends Controller
             $admin->save();
             $token = $admin->createToken('Auth_Token')->accessToken;
             DB::commit();
-            return response()->json(['token' => $token, 'status' => 1, "message" => 'Admin Create Successfully'], 200);
+            return response()->json(['token' => $admin->getRememberToken(), 'status' => 1, "message" => 'Admin Create Successfully'], 200);
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json(['status' => 0, 'msg' => $e->getMessage()], 403);

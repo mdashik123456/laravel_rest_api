@@ -22,6 +22,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        
+        // Passport::loadKeysFrom(__DIR__.'/../secrets/oauth');
+        Passport::personalAccessTokensExpireIn(now()->addMinutes(10)); //Token will expire after 10 minutes
     }
 }
